@@ -1,0 +1,42 @@
+@mixin TypographyColorWhite($font-weight: 400,
+    $font-size: 0.7612rem,
+    $line-height: 1.3956rem,
+) {
+    color: #ffffff;
+    font-weight: $font-weight;
+    font-size: $font-size;
+    line-height: $line-height;
+
+}
+
+.title1 {
+    font-weight: 700;
+    font-size: 1.1419rem;
+    line-height: 1.7763rem;
+}
+
+.title2 {
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1.6494rem;
+}
+
+.headline {
+    @include TypographyColorWhite();
+
+    &2 {
+        color: var(--color-grey-1);
+        font-weight: 500;
+        font-size: 0.625rem;
+        line-height: 0.875rem;
+        text-align: center;
+    }
+}
+
+.headlineBold {
+    @include TypographyColorWhite($font-weight: 600, $line-height: 1.1419rem);
+}
+
+.paragraph {
+    @include TypographyColorWhite($font-size: 1rem, $line-height: 1.1419rem);
+}

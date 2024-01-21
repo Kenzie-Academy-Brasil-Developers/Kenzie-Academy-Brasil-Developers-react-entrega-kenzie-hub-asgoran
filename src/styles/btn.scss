@@ -1,0 +1,106 @@
+@mixin btnPrimary() {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+@mixin btnPrimaryFocus() {
+    background-color: var(--color-primary-focus);
+    border-color: var(--color-primary-focus);
+}
+
+@mixin btnPrimaryNegative() {
+    background-color: var(--color-primary-negative);
+    border-color: var(--color-primary-negative);
+}
+
+@mixin btnDisabled() {
+    background-color: var(--color-grey-1);
+    border-color: var(--color-grey-1);
+}
+
+@mixin btnDisabledFocus() {
+    background-color: var(--color-grey-2);
+    border-color: var(--color-grey-2);
+}
+
+
+%buttonDefault {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0rem, 1.3956rem, 0rem, 1.3956rem;
+    gap: 0.6344rem;
+
+    border: 1.22px solid;
+    border-radius: 4.06px;
+
+    color: var(--color-grey-0);
+
+}
+
+.btn {
+    @extend %buttonDefault;
+
+    &.exit {
+        @include btnDisabled();
+        background-color: var(--color-grey-3);
+        border-color: var(--color-grey-3);
+        height: 32px;
+        width: 55.49px;
+    }
+
+    &.login {
+        @include btnPrimary();
+        width: 100%;
+        height: 2.4063rem;
+    }
+
+    &.login:focus {
+        @include btnPrimaryFocus();
+    }
+
+    &.login:hover {
+        @include btnPrimaryFocus();
+    }
+
+    &.disabled {
+        @include btnDisabled();
+        width: 16.2437rem;
+        height: 2.4063rem;
+        border-radius: 0.25rem;
+        border: 0.0762rem;
+        text-decoration: none;
+        margin-top: 0.625rem;
+    }
+
+    &.disabled:focus {
+        @include btnDisabledFocus();
+    }
+
+    &.disabled:hover {
+        @include btnDisabledFocus();
+    }
+
+    &negative {
+        @include btnPrimaryNegative();
+    }
+}
+
+.pwdEye {
+    position: absolute;
+    left: 230px;
+    bottom: 8px;
+    background-color: var(--color-grey-2);
+    border: none;
+    color: var(--color-grey-0);
+}
+
+.signupBtn {
+    width: 100%;
+    height: 2.3988rem;
+    padding: 0px, 1.1162rem, 0px, 17.86px;
+    border-radius: 3.2px;
+    border: 0.97px;
+    color: var(--color-grey-0);
+}
