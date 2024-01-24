@@ -1,8 +1,11 @@
+import { useContext } from "react";
 import KenzieHub from "../../assets/KenzieHub.svg"
+import { TechList } from "../../components/techs";
+import { UserContext } from "../../providers/UserContext";
 
-export const DashBoard = ({ authData, userLogout }) => {
+export const DashBoard = () => {
 
-    const user = authData.user
+    const { user, userLogout } = useContext(UserContext);
 
     return (
         <main className="main__dashboard">
@@ -14,9 +17,8 @@ export const DashBoard = ({ authData, userLogout }) => {
                 <h1 className="title1">Olá, {user?.name}</h1>
                 <p className="headline">{user?.course_module}</p>
             </div>
-            <div className="warning__dashboard">
-                <h2 className="title1">Que pena! Estamos em desenvolvimento :(</h2>
-                <p className="title2">Nossa aplicação está em desenvolvimento, em breve teremos novidades</p>
+            <div>
+                <TechList />
             </div>
         </main>
     );

@@ -1,10 +1,10 @@
 import { useForm } from "react-hook-form";
-import { Input } from "../input";
 import { zodResolver } from "@hookform/resolvers/zod"
 import { RegisterFormSchema } from "./registerForm.schema";
-import { InputPassword } from "../inputPassword";
-import { api } from "../../../services";
-import { useNavigate } from "react-router-dom";
+import { InputPassword } from "../Inputs/InputPassword";
+import { InputStandard } from "../Inputs/InputStandard";
+import { useContext } from "react";
+import { UserContext } from "../../../providers/UserContext";
 
 export const RegisterForm = () => {
 
@@ -12,30 +12,20 @@ export const RegisterForm = () => {
         resolver: zodResolver(RegisterFormSchema),
     });
 
-
-    const navigate = useNavigate();
+    const { userRegister } = useContext(UserContext);
 
     const onSubmit = (payLoad) => {
         userRegister(payLoad);
     };
 
-    const userRegister = async (payLoad) => {
-        try {
-            const { data } = await api.post("/users", payLoad);
-            navigate("/");
-            console.log(data);
-        } catch (error) {
-            console.log(error);
-        }
-    }
     return (
         <form className="registerForm headline2" onSubmit={handleSubmit(onSubmit)}>
-            <Input label="Nome" type="text" error={errors.name} {...register("name")} />
-            <Input label="Email" type="email" error={errors.email}{...register("email")} />
+            <InputStandard label="Nome" type="text" error={errors.name} {...register("name")} />
+            <InputStandard label="Email" type="email" error={errors.email}{...register("email")} />
             <InputPassword label="Senha" error={errors.password}{...register("password")} />
             <InputPassword label="Confirmar Senha" error={errors.confirmPassword}{...register("confirmPassword")} />
-            <Input label="Bio" type="text" error={errors.bio}{...register("bio")} />
-            <Input label="Contato" type="tel" error={errors.contact} {...register("contact")} />
+            <InputStandard label="Bio" type="text" error={errors.bio}{...register("bio")} />
+            <InputStandard label="Contato" type="tel" error={errors.contact} {...register("contact")} />
 
             <div>
                 <label for="Selecionar módulo">Selecionar módulo</label>

@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react'
 
-export const Input = forwardRef(({ label, error, ...rest }, ref) => (
+export const InputStandard = forwardRef(({ label, error, ...rest }, ref) => (
   <div>
     <label>{label}</label>
     <input ref={ref} {...rest} />

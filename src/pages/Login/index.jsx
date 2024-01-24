@@ -1,7 +1,8 @@
 import KenzieHub from "../../assets/KenzieHub.svg"
 import { LoginForm } from "../../components/forms/LoginForm";
 
-export const Login = ({ setAuthData }) => {
+export const Login = ({ }) => {
+
     return (
         <main className="main__login">
             <div className="img__login">
@@ -10,7 +11,7 @@ export const Login = ({ setAuthData }) => {
             <section className="login__section">
                 <div className="login__div">
                     <h1 className="title2">Login</h1>
-                    <LoginForm setAuthData={setAuthData} />
+                    <LoginForm />
                 </div>
             </section>
         </main>

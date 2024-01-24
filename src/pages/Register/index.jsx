@@ -1,4 +1,4 @@
-import { RegisterForm } from "../../components";
+import { RegisterForm } from "../../components/forms/RegisterForm";
 import KenzieHub from "../../assets/KenzieHub.svg"
 import { Link } from "react-router-dom";
 
